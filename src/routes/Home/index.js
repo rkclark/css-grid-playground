@@ -1,11 +1,16 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import Counter from './components/counter';
+import * as actions from './actions';
 
-import { MY_API } from '../../config';
+const mapStateToProps = state => ({ counter: state.counter });
 
-export default function Home() {
-  return (
-    <div>
-      <h1>HOME {MY_API}</h1>
-    </div>
-  );
-}
+const mapDispatchToProps = dispatch => ({
+  increment() {
+    dispatch(actions.increment());
+  },
+  decrement() {
+    dispatch(actions.decrement());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
