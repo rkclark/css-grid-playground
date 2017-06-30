@@ -1,6 +1,5 @@
 import { counter as types } from '../../actionTypes';
-
-export const initialState = 0;
+import initialState from './initialState';
 
 export default function (state = initialState, action) {
   switch (action.type) {
